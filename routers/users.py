@@ -36,7 +36,7 @@ class UserVerification(BaseModel):
     new_password: str = Field(min_length=6)
 
 
-@router.get('/users', status_code=status.HTTP_200_OK)
+@router.get('/', status_code=status.HTTP_200_OK)
 async def get_user(user: user_dependency, db: db_dependency):
     if user is None:
         raise HTTPException(status_code=401, detail='Authentication Failed')
